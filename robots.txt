@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nermonicwa.github.io/indexofficial-aiyouxi-com-cn/sitemap.xml
