@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳门六合彩 · 信息索引与资料整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f7f3ef;
+            font-family: 'Segoe UI', 'PingFang SC', Roboto, 'Helvetica Neue', sans-serif;
+            color: #3b3a36;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fcfaf8;
+            border-radius: 32px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        /* 顶部导航 */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1.8rem;
+            border-bottom: 1px solid #e8e2da;
+            margin-bottom: 2.2rem;
+        }
+        .nav-brand {
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: #9b8c7d;
+            font-weight: 400;
+            background: #f0ebe4;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.6rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #6b5f53;
+            font-size: 0.95rem;
+            padding: 0.25rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .nav-links a:hover {
+            border-bottom-color: #b7a48f;
+            color: #2f2a24;
+        }
+
+        /* hero */
+        .hero {
+            text-align: left;
+            padding: 0.8rem 0 2rem 0;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #4a423a;
+            letter-spacing: 0.02em;
+        }
+        .hero .sub {
+            font-size: 1rem;
+            color: #7b7167;
+            margin-top: 0.5rem;
+            max-width: 680px;
+            border-left: 3px solid #d6ccc0;
+            padding-left: 1.2rem;
+            background: #f6f1eb;
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+        }
+
+        /* 核心介绍 */
+        .intro-block {
+            background: #f2ede7;
+            padding: 1.8rem 2rem;
+            border-radius: 28px;
+            margin: 2rem 0 2.5rem 0;
+        }
+        .intro-block p {
+            font-size: 1.05rem;
+            margin-bottom: 0.75rem;
+        }
+        .intro-block p:last-child {
+            margin-bottom: 0;
+        }
+        .intro-block a {
+            color: #735e4b;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #cdb9a6;
+            font-weight: 500;
+        }
+        .intro-block a:hover {
+            color: #3d3229;
+            text-decoration-color: #a28d78;
+        }
+
+        /* 三个场景模块 */
+        .scenes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 2.2rem 0;
+        }
+        .scene-card {
+            flex: 1 1 240px;
+            background: #f8f4ef;
+            border-radius: 24px;
+            padding: 1.6rem 1.4rem;
+            border: 1px solid #e6ddd3;
+            transition: box-shadow 0.2s;
+        }
+        .scene-card:hover {
+            box-shadow: 0 6px 14px rgba(0,0,0,0.03);
+        }
+        .scene-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #4f453c;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.01em;
+        }
+        .scene-card p {
+            font-size: 0.92rem;
+            color: #5f554b;
+        }
+        .scene-icon {
+            font-size: 1.6rem;
+            margin-bottom: 0.3rem;
+            display: inline-block;
+        }
+
+        /* 提示框 / 引用块 */
+        .note-box {
+            background: #efe9e2;
+            border-left: 6px solid #c4b4a2;
+            padding: 1.4rem 1.8rem;
+            border-radius: 20px;
+            margin: 2.2rem 0 1.8rem 0;
+        }
+        .note-box p {
+            font-size: 0.98rem;
+            color: #4c443c;
+            margin-bottom: 0.3rem;
+        }
+        .note-box strong {
+            font-weight: 500;
+            color: #3b322a;
+        }
+
+        /* FAQ 摘要 */
+        .faq-section {
+            margin: 2rem 0 1.2rem 0;
+        }
+        .faq-section h2 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #4f453c;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.02em;
+        }
+        .faq-item {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #e7dfd6;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 500;
+            color: #3f3830;
+            margin-bottom: 0.2rem;
+        }
+        .faq-a {
+            color: #625a51;
+            font-size: 0.93rem;
+            padding-left: 0.6rem;
+        }
+
+        /* 页面底部 */
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.4rem;
+            border-top: 1px solid #e6ddd3;
+            font-size: 0.85rem;
+            color: #8a7f74;
+            text-align: center;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            .container { padding: 1.5rem 1.2rem; }
+            .hero h1 { font-size: 1.7rem; }
+            .nav { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+            .nav-links { width: 100%; justify-content: flex-start; gap: 1rem; }
+            .intro-block { padding: 1.2rem 1.2rem; }
+            .scenes { flex-direction: column; gap: 1rem; }
+            .scene-card { flex: 1 1 auto; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 顶部导航 -->
+    <nav class="nav">
+        <span class="nav-brand">📋 资料索引</span>
+        <div class="nav-links">
+            <a href="#intro">整理说明</a>
+            <a href="#scenes">常用场景</a>
+            <a href="#faq">常见说明</a>
+        </div>
+    </nav>
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>澳门六合彩 · 信息整理</h1>
+        <div class="sub">
+            从资料整理与信息索引的角度出发，汇集规则、历史与参考内容，帮助使用者更高效地查阅相关材料。
+        </div>
+    </div>
+
+    <!-- 核心介绍 (含链接) -->
+    <div class="intro-block" id="intro">
+        <p>
+            <strong>澳门六合彩</strong>作为一种数字游戏，长期以来形成了特有的号码文化和统计习惯。许多爱好者会收集历史开彩记录、走势图表以及各类统计资料，以此作为个人研究的一部分。本站以索引方式整合了相关资源，供有需要的人士系统查阅。
+        </p>
+        <p>
+            如果你是初次接触 <a href="https://app--macaujc.com">澳门六合彩</a>，建议先从基础规则与玩法说明入手，再结合历史数据观察号码分布。这里的资料均按主题分类，便于按需浏览，不预设任何投注导向。
+        </p>
+        <p>
+            我们持续优化信息的呈现结构，并定期更新公开可查的记录与整理文档。页面内容仅为信息汇总，不构成任何操作建议。
+        </p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes" id="scenes">
+        <div class="scene-card">
+            <span class="scene-icon">📊</span>
+            <h3>历史数据查阅</h3>
+            <p>按年份、期号整理的开彩记录与号码分布表，便于横向对比和趋势观察。数据来源均标注于文档内。</p>
+        </div>
+        <div class="scene-card">
+            <span class="scene-icon">🧮</span>
+            <h3>号码统计与图表</h3>
+            <p>将出现频率、冷热号、和值等维度可视化，辅助个人分析习惯。所有图表基于公开记录生成。</p>
+        </div>
+        <div class="scene-card">
+            <span class="scene-icon">📁</span>
+            <h3>玩法与术语说明</h3>
+            <p>收录常见玩法分类、赔率参考以及专用名词解释，帮助新读者快速理解基本概念与规则框架。</p>
+        </div>
+    </div>
+
+    <!-- 提示框 / 引用块 -->
+    <div class="note-box">
+        <p><strong>💡 信息使用提示</strong> · 本站所有内容均来自公开资料整理，仅供个人学习与参考。任何数字游戏均存在不确定性，请理性看待数据与规律。不宣扬、不鼓励非理性参与。</p>
+        <p style="margin-top:0.5rem;">—— 资料整理者 · 2025</p>
+    </div>
+
+    <!-- FAQ 摘要 / 常见说明 -->
+    <div class="faq-section" id="faq">
+        <h2>常见说明</h2>
+        <div class="faq-item">
+            <div class="faq-q">❓ 开彩结果从哪里获取？</div>
+            <div class="faq-a">可参考澳门官方公告或授权渠道发布的信息。本站汇总的历史记录均来自公开可查的数据源，并附有参考标签。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">❓ 资料更新频率如何？</div>
+            <div class="faq-a">通常每期开彩后的一至两个工作日内完成数据录入与核对，并更新至对应页面。特殊情况下会延迟，但会保持及时性。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">❓ 是否提供走势预测或分析服务？</div>
+            <div class="faq-a">本站仅提供历史信息索引与基础统计图表，不输出任何预测、推荐或保证结果的分析。所有使用者应依据个人判断进行参考。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">❓ 可以转载或引用这里的资料吗？</div>
+            <div class="faq-a">整理内容欢迎非商业引用，但请注明出处并保持原有完整性。商业用途或大量转载前请通过页面联系方式取得许可。</div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        澳门六合彩 · 资料索引 ｜ 基于公开信息整理 ｜ 仅供个人参考
+    </div>
+
+</div>
+</body>
+</html>
