@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>赏金女王 · 站点介绍</title>
+  <style>
+    /* 全局重置与基调 */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+      background: #f2f4f7;  /* 浅灰基底 */
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 0 1.2rem;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 2.2rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    /* 卡片通用：细边框 + 柔和阴影 + 圆角 */
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e7ed;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.02);
+      padding: 2.4rem 2rem;
+      transition: box-shadow 0.2s ease;
+    }
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    /* ---------- hero 区 ---------- */
+    .hero {
+      text-align: center;
+      padding: 3.2rem 2rem 2.8rem;
+      background: linear-gradient(135deg, #ffffff 0%, #fafbfd 100%);
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #182230;
+      margin-bottom: 0.6rem;
+    }
+    .hero .sub {
+      font-size: 1.12rem;
+      color: #4a5b6e;
+      max-width: 600px;
+      margin: 0 auto 1.2rem;
+    }
+    .hero .tagline {
+      display: inline-block;
+      background: #eef2f6;
+      padding: 0.4rem 1.4rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      color: #2e4055;
+      border: 1px solid #dbe1e9;
+    }
+    .hero a {
+      color: #1e3c5f;
+      text-decoration: none;
+      border-bottom: 1px dashed #9bafc4;
+    }
+
+    /* ---------- 优势区（三列网格） ---------- */
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.5rem;
+    }
+    .advantage-item {
+      background: #fcfcfd;
+      border-radius: 16px;
+      padding: 1.8rem 1.2rem;
+      border: 1px solid #e6ebf1;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      text-align: left;
+    }
+    .advantage-item h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .advantage-item h3::before {
+      content: "✦";
+      color: #b48b5c;
+      font-size: 1.2rem;
+    }
+    .advantage-item p {
+      color: #3d5068;
+      font-size: 0.95rem;
+    }
+
+    /* ---------- 说明区（介绍 + 引用） ---------- */
+    .intro-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+    }
+    .intro-section .card {
+      flex: 1 1 300px;
+    }
+    .intro-section .card:first-child {
+      flex-basis: 55%;
+    }
+    .intro-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: #17212e;
+    }
+    .intro-section p {
+      margin-bottom: 0.9rem;
+      color: #2f3f54;
+    }
+    .intro-highlight {
+      background: #f8fafc;
+      border-left: 4px solid #b48b5c;
+      padding: 1rem 1.2rem;
+      border-radius: 6px;
+      font-size: 0.98rem;
+      color: #1f2e41;
+      margin: 1rem 0;
+    }
+    .faq-preview {
+      background: #f7f9fc;
+      border-radius: 14px;
+      padding: 1.4rem 1.4rem 1rem;
+      border: 1px solid #e2e9f2;
+    }
+    .faq-preview details {
+      margin-bottom: 0.6rem;
+    }
+    .faq-preview summary {
+      font-weight: 500;
+      cursor: pointer;
+      padding: 0.2rem 0;
+      color: #1f3752;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .faq-preview summary::-webkit-details-marker { display: none; }
+    .faq-preview summary::before {
+      content: "▸";
+      display: inline-block;
+      width: 1.2rem;
+      color: #9b7a5a;
+      transition: transform 0.15s;
+    }
+    .faq-preview details[open] summary::before {
+      transform: rotate(90deg);
+    }
+    .faq-preview .answer {
+      padding: 0.5rem 0 0.8rem 1.4rem;
+      color: #3a4d66;
+      font-size: 0.95rem;
+    }
+    .faq-preview a {
+      color: #1e3c5f;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #b6c9de;
+    }
+
+    /* ---------- 底部链接 ---------- */
+    .bottom-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.6rem 2rem;
+    }
+    .bottom-links .link-group {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .bottom-links a {
+      color: #2b405b;
+      text-decoration: none;
+      font-size: 0.95rem;
+      border-bottom: 1px dotted #bcc9da;
+      transition: border 0.2s;
+    }
+    .bottom-links a:hover {
+      border-bottom: 1px solid #7f9ab8;
+    }
+    .bottom-links .brand {
+      font-weight: 500;
+      color: #3c506b;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dce3ec;
+      margin: 0.2rem 0;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      body { padding: 0 0.8rem; }
+      .hero h1 { font-size: 1.9rem; }
+      .card { padding: 1.6rem 1.2rem; }
+      .advantage-grid { grid-template-columns: 1fr; }
+      .intro-section { flex-direction: column; }
+      .bottom-links { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- HERO 区 -->
+    <div class="card hero">
+      <h1>赏金女王 · 站点导览</h1>
+      <p class="sub">一个面向游戏娱乐的信息页面，围绕「赏金女王」内容展开实用介绍与常见问题摘要。</p>
+      <div class="tagline">
+        🎯 推荐了解：<a href="https://web1-pg.com">赏金女王</a>
+      </div>
+    </div>
+
+    <!-- 优势区（卡片网格） -->
+    <div class="advantage-grid">
+      <div class="advantage-item">
+        <h3>站点定位</h3>
+        <p>提供关于「赏金女王」相关游戏主题的浏览指引与背景说明，内容保持中立、信息清晰。</p>
+      </div>
+      <div class="advantage-item">
+        <h3>内容结构</h3>
+        <p>从介绍、特点到常见疑问，逐层展开，帮助新访客快速形成整体印象。</p>
+      </div>
+      <div class="advantage-item">
+        <h3>使用场景</h3>
+        <p>适合希望了解赏金女王主题、浏览游戏介绍的用户，页面简洁直接。</p>
+      </div>
+      <div class="advantage-item">
+        <h3>可信说明</h3>
+        <p>所有描述均基于公开信息与一般性游戏介绍，不夸大、不诱导，保持透明。</p>
+      </div>
+    </div>
+
+    <!-- 说明区 + FAQ 摘要（双列布局） -->
+    <div class="intro-section">
+      <div class="card">
+        <h2>关于赏金女王</h2>
+        <p>「赏金女王」是许多玩家熟悉的游戏主题形象，在 web1-pg.com 站点中，你可以找到与之相关的游戏内容展示、主题介绍以及玩法说明。整个页面围绕赏金女王的风格展开，视觉上偏向经典与华丽。</p>
+        <p>站点内容以信息展示为主，不包含任何形式的真实博彩或金钱交易，定位为游戏文化介绍页面。如果你对赏金女王感兴趣，不妨先浏览基础介绍，再通过站内链接进一步探索。</p>
+        <div class="intro-highlight">
+          💡 站点提示：所有内容仅供参考，请根据个人兴趣理性选择浏览。
+        </div>
+        <p style="margin-top: 0.2rem;">
+          直接了解 <a href="https://web1-pg.com">赏金女王</a> 的完整页面，获取更多主题详情。
+        </p>
+      </div>
+
+      <!-- FAQ 摘要区（右侧卡片） -->
+      <div class="card faq-preview">
+        <h3 style="font-weight: 600; font-size: 1.2rem; margin-bottom: 0.8rem;">常见疑问 · 摘要</h3>
+        <details>
+          <summary>赏金女王是什么类型的主题？</summary>
+          <div class="answer">赏金女王通常指代一种带有西部冒险与华丽风格的游戏角色设定，常见于娱乐类产品中，突出探索与收集元素。</div>
+        </details>
+        <details>
+          <summary>页面是否包含真实金钱交易？</summary>
+          <div class="answer">不包含。本介绍站仅做信息展示与游戏文化说明，不涉及任何真实货币下注、提现或金融操作。</div>
+        </details>
+        <details>
+          <summary>从哪里可以查看完整内容？</summary>
+          <div class="answer">你可以通过页面中的链接直接跳转至 <a href="https://web1-pg.com">赏金女王</a> 专题页，浏览更细致的介绍与场景。</div>
+        </details>
+        <p style="margin-top: 0.8rem; font-size: 0.9rem; color: #4a617d;">以上仅为部分常见疑问摘要，更多问题可直接参考站点说明。</p>
+      </div>
+    </div>
+
+    <!-- 底部链接卡片 -->
+    <div class="card bottom-links">
+      <div class="brand">🎭 赏金女王 · 内容页</div>
+      <div class="link-group">
+        <a href="https://web1-pg.com">赏金女王</a>
+        <a href="#">站点说明</a>
+        <a href="#">隐私参考</a>
+        <a href="#">关于本页</a>
+      </div>
+      <div style="font-size: 0.85rem; color: #5a6f87;">
+        &copy; 介绍页 · 仅供浏览
+      </div>
+    </div>
+  </div>
+</body>
+</html>
